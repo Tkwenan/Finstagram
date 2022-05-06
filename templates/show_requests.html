@@ -1,0 +1,27 @@
+<html>
+<head>
+</head>
+<body>
+<form action="/accept_request" method="GET">
+    <h2>Follow requests:</h2> 
+    <br>
+      {% for line in requests_list %}  
+    
+              <input type="text" id="user" name="user" value="{{line.follower}}">
+              <input type="submit" name="accept" value = "Accept"/>
+              <input type="submit" name="reject" value= "Reject" formaction="/reject_request"/>
+              <br>
+              <br>
+                          
+      {% endfor %} 
+
+
+<a href="/manage_follows">Back</a>
+
+</form>
+</body>
+</html>
+
+
+  
+   

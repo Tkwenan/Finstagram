@@ -1,0 +1,77 @@
+<html>
+<head>
+</head>
+<body>
+    <style>
+        .backdrop{
+            max-width: 1000px;
+            background-color: aliceblue;
+            margin-left: auto;
+            margin-right: auto;
+            height: fit-content;
+            text-align: center;
+        }
+    
+        body{
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+    
+        input[type=text], select {
+            width: 40%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+    
+        input[type=submit] {
+            width: fit-content;
+            background-color: #FFA64F;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+        }
+    
+    </style>
+
+ <!---------------------------------Create a new friend group-------------------------------------------> 
+<div class="backdrop">
+<br>
+<br>
+ <h2>Create new friend group:</h2> 
+<br>
+
+<form action="/new_friendgroup" method="POST">
+<label for="groupname"> Group name: </label>
+<input type="text" id="groupname" name="groupname" required/>
+<br> 
+<br>  
+
+<label for="description">Description:</label>
+<textarea id="description" name="description" rows="4" cols="50"></textarea><br>
+<br> 
+<br> 
+ 
+<input type="submit" value = "Create friend group"/>
+{% if error %}
+<p class="error"><strong>Error:</strong> {{error}}</p>
+{% endif %}
+</form>
+<br>
+
+<a href="/friendgroups"> Back </a> 
+<br>
+<a href="/home">Home</a>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<html>
+<head>
+</head>
+
+<body>
+
+<style>
+	body{
+		text-align: center;
+	}
+
+	input[type=text], select {
+		width: 90%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-sizing: border-box;
+	}
+
+	input[type=email], select {
+		width: 90%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-sizing: border-box;
+	}
+
+	input[type=password], select {
+		width: 90%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-sizing: border-box;
+	}
+
+	input[type=submit] {
+		width: 140px;
+		background-color: #FFA64F;
+		color: white;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+
+	input[type=submit]:hover {
+  		background-color: #F39B46;
+	}
+
+	.button {
+		width: 100px;
+		background-color: #FFA64F;
+		color: white;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		margin-left: auto;
+		margin-right: auto;
+	} 
+
+	.box{
+		background-color: bisque;
+		max-width: 800px;
+		margin-right: auto;
+		margin-left: auto;
+		border-radius: 10px;
+	}
+
+	label{
+		text-align: left;
+	}
+</style>
+<br>
+<br>
+
+<div class="box">
+<br>
+<h2>Register</h2>
+<form action="/registerAuth" method="POST">
+	<label for="username">Enter your username:</label></br>
+	<input type="text" name = "username" placeholder="Enter your Username" required/> </br>
+	<br>
+	<label for="password">Enter your password:</label></br>
+	<input type="password" name = "password" placeholder="password" required/></br>
+	<br>
+	<label for="firstName">Enter your first name:</label></br>
+	<input type="text" name = "firstName" placeholder="First Name" required/></br>
+	<br>
+	<label for="lastName">Enter your last name:</label></br>
+	<input type="text" name = "lastName" placeholder="Last Name" required/></br>
+	<br>
+	<label for="email">Enter your email:</label></br>
+	<input type="email" name = "email" placeholder="Email" required/></br>
+	<br>
+	<input type="submit" value = Register />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+<div class="button">
+<a href="/">Go back</a>
+<br>
+</div>
+</body>
+</div>
+
+
+
+</html>
+

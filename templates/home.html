@@ -1,0 +1,150 @@
+<html>
+<head>
+</head>
+<body>
+
+<style>
+	th, td{
+		border: 0px;
+		align-items: center;
+	}
+
+	.backdrop{
+		max-width: 1000px;
+		background-color: aliceblue;
+		margin-left: auto;
+		margin-right: auto;
+		height: fit-content;
+		text-align: center;
+	}
+	.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+	table{
+		border: 1px solid black
+	}
+	body{
+		max-width: 1000px;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+	}
+
+	th, td{
+		border: 0px;
+		align-items: center;
+	}
+
+
+
+
+	.username{
+		font-weight: bold;
+		background-color: #E6F1FF;
+		font-size: 24px;
+		text-align: center;
+		margin: auto;
+	}
+	.name{
+		font-size:18px;
+		background-color:antiquewhite ;
+	}
+	.center{
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.post{
+		background-color: #FFFFFF;
+		border-radius: 10px;
+		width: 400px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	input[type=text], select {
+		width: 90%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		border-radius: 20px;
+		box-sizing: border-box;
+	}
+
+	input[type=submit] {
+		width: 100px;
+		background-color: #FFA64F;
+		color: white;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+
+	.links {
+		font-size: 18px;
+	}
+
+</style>
+
+<div class="backdrop">	
+	<div class = "links">
+	<br>	
+	<h1>Welcome {{username}}</h1> 
+	<br>
+	<a href="/upload_form">Upload a photo</a>
+	<br>
+	<a href="/manage_follows">Manage Follows</a>
+	<br>
+	<a href="/friendgroups">Friend Groups</a>
+	<br>
+	<a href="/share_photo">Share photo</a>
+	<br>
+	<a href="/select_blogger">Search Photos by Poster</a>
+	<br>
+	<a href="/select_tagged">Search Photos by Tags</a>
+	<br>
+	<a href="/manage_tags">Manage Tags</a>	
+	<br>
+	<a href="/logout">Logout</a>
+	</div>
+
+<h2>Here are your photos</h2>
+{% for line in photos %}
+<table class="center" width = 500px >
+	<tr ><td><div class="username">{{line.username}}</div></td></tr>
+
+
+	<tr><td><img src= {{line.filePath}} width="400" height="auto" class="center"></br></td></tr>
+
+	<tr>
+		
+		<td><div class="name">{{line.firstName}} {{line.lastName}}</div></td>
+		
+	</tr>
+	<tr>
+		<td>{{line.postingDate}}</td>
+	</tr>
+	<tr>
+		<td>pID: {{line.pID}}</td>
+	</tr>
+	<tr>
+		<td>{{line.caption}}</td>	
+	</tr>
+	<tr>
+		<td>Tags: {% for row in Tags%} {% if row.pID == line.pID %}{{row.username}}{% endif%}{% endfor%} </td>	
+	</tr>
+</table>
+<br>
+{% endfor %}
+</div>
+</body>
+
+
+</html>

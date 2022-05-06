@@ -1,0 +1,110 @@
+<html>
+<head>
+</head>
+<body>
+
+<style type="text/css">
+	th, td{
+		border: 0px;
+		align-items: center;
+	}
+
+	.backdrop{
+		max-width: 1000px;
+		background-color: aliceblue;
+		margin-left: auto;
+		margin-right: auto;
+		height: fit-content;
+		text-align: center;
+	}
+	.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+	table{
+		border: 1px solid black
+	}
+	body{
+		max-width: 1000px;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+	}
+
+	th, td{
+		border: 0px;
+		align-items: center;
+	}
+	.username{
+		font-weight: bold;
+		background-color: #E6F1FF;
+		font-size: 24px;
+		text-align: center;
+		margin: auto;
+	}
+	.name{
+		font-size:18px;
+		background-color:antiquewhite ;
+	}
+	.center{
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+
+</style>
+
+
+<div class="backdrop">
+<br>
+<h2>Here are posts by {{poster}}:</h2> 
+
+{% for line in photosByUser %}
+<table class="center" width = 500px >
+	<tr ><td><div class="username">{{line.poster}}</div></td></tr>
+
+
+	<tr><td><img src= {{line.filePath}} width="400" height="auto" class="center"></br></td></tr>
+
+	<tr>
+		
+		<td><div class="name">{{line.firstName}} {{line.lastName}}</div></td>
+		
+	</tr>
+	<tr>
+		<td>{{line.postingDate}}</td>
+	</tr>
+	<tr>
+		<td>pID: {{line.pID}}</td>
+	</tr>
+	<tr>
+		<td>{{line.caption}}</td>	
+	</tr>
+	<tr>
+		<td>Tags: {% for row in Tags%} {% if row.pID == line.pID %}{{row.username}}{% endif%}{% endfor%} </td>	
+	</tr>
+</table>
+<br>
+{% endfor %}
+
+{% if error %}
+<p class="error"><strong>Error:</strong> {{error}}</p>
+{% endif %}
+
+<br>
+<br>
+<a href="/select_blogger">Select another blogger</a>
+<br>
+<br>
+<a href="/home">Home</a>
+<br>
+<br>
+<a href="/logout">Logout</a>
+</div>
+</body>
+
+
+</html>

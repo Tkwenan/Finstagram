@@ -1,0 +1,24 @@
+<html>
+<head>
+</head>
+<body>
+<form action="/accept_or_decline_request" method="GET">
+    <h2>Tag requests:</h2> 
+    <br>
+      {% for line in tag_requests %}  
+    
+              <input type="text" id="user" name="user" value="{{line.pID}}" readonly>
+              <input type="submit" name="accept" value = "Accept">
+              <input type="submit" name="reject" value= "Reject">
+              <br>
+              <br>
+                          
+      {% endfor %} 
+
+
+<a href="/manage_tags">Back</a>
+
+</form>
+</body>
+</html>
+
